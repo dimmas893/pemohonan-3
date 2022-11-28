@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Nov 2022 pada 07.24
+-- Waktu pembuatan: 28 Nov 2022 pada 13.00
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -47,6 +47,7 @@ CREATE TABLE `layanan` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_layanan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama_layanan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `testing` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `info_layanan` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -56,18 +57,18 @@ CREATE TABLE `layanan` (
 -- Dumping data untuk tabel `layanan`
 --
 
-INSERT INTO `layanan` (`id`, `id_layanan`, `nama_layanan`, `info_layanan`, `created_at`, `updated_at`) VALUES
-(2, '1234', 'Pelantikan PPAT', 'layanan ini untuk membuat rumah kalangan bawah', '2022-11-23 21:40:13', '2022-11-23 23:49:16'),
-(3, '123', 'Ganti Nama', 'layanan ini untuk kalangan bawah', '2022-11-23 22:21:12', '2022-11-23 23:48:54'),
-(4, '1', 'Pelepasan Sebagian Hak', 'layanan ini untuk kalangan bawah', '2022-11-23 23:49:42', '2022-11-23 23:49:42'),
-(5, '1', 'Pemecahan Bidang', 'layanan ini untuk kalangan bawah', '2022-11-23 23:50:00', '2022-11-23 23:50:00'),
-(6, '1', 'Pemisahan Bidang', 'layanan ini untuk kalangan bawah', '2022-11-23 23:50:21', '2022-11-23 23:50:21'),
-(7, '1', 'Pencatatan/Pelunasan BPHTB/PPH', 'layanan ini untuk kalangan bawah', '2022-11-23 23:51:19', '2022-11-23 23:51:19'),
-(8, '1', 'Pengangkatan Sita', 'layanan ini untuk kalangan bawah', '2022-11-23 23:51:43', '2022-11-23 23:51:43'),
-(9, '2', 'Penggabungan Bidang', 'layanan ini untuk kalangan bawah', '2022-11-23 23:52:05', '2022-11-23 23:52:05'),
-(10, '1', 'Peningkatan Kualitas PPAT sementara', 'layanan ini untuk kalangan bawah', '2022-11-23 23:52:41', '2022-11-23 23:52:41'),
-(11, '2', 'Peralihan Pihak - Hibah', 'layanan ini untuk kalangan bawah', '2022-11-23 23:53:09', '2022-11-23 23:53:09'),
-(12, 'das', 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '-dapat diakses online oleh PPTA : Ya\r\n-dapat diakses online oleh Masyarakat : Tidak\r\n-dapat diakses online oleh Penilai Tanah : Tidak\r\n-dapat diakses online oleh Suerveyor : Tidak', '2022-11-25 00:19:06', '2022-11-25 00:22:20');
+INSERT INTO `layanan` (`id`, `id_layanan`, `nama_layanan`, `testing`, `info_layanan`, `created_at`, `updated_at`) VALUES
+(2, '1234', 'Pelantikan PPAT', 'p', 'layanan ini untuk membuat rumah kalangan bawah', '2022-11-23 21:40:13', '2022-11-23 23:49:16'),
+(3, '123', 'Ganti Nama', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 22:21:12', '2022-11-23 23:48:54'),
+(4, '1', 'Pelepasan Sebagian Hak', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:49:42', '2022-11-23 23:49:42'),
+(5, '1', 'Pemecahan Bidang', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:50:00', '2022-11-23 23:50:00'),
+(6, '1', 'Pemisahan Bidang', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:50:21', '2022-11-23 23:50:21'),
+(7, '1', 'Pencatatan/Pelunasan BPHTB/PPH', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:51:19', '2022-11-23 23:51:19'),
+(8, '1', 'Pengangkatan Sita', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:51:43', '2022-11-23 23:51:43'),
+(9, '2', 'Penggabungan Bidang', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:52:05', '2022-11-23 23:52:05'),
+(10, '1', 'Peningkatan Kualitas PPAT sementara', NULL, 'layanan ini untuk kalangan bawah', '2022-11-23 23:52:41', '2022-11-23 23:52:41'),
+(11, '2', 'Peralihan Pihak - Hibah', 'p', 'layanan ini untuk kalangan bawah', '2022-11-23 23:53:09', '2022-11-23 23:53:09'),
+(12, 'das', 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '-dapat diakses online oleh PPTA : Ya\r\n-dapat diakses online oleh Masyarakat : Tidak\r\n-dapat diakses online oleh Penilai Tanah : Tidak\r\n-dapat diakses online oleh Suerveyor : Tidak', '2022-11-25 00:19:06', '2022-11-25 00:22:20');
 
 -- --------------------------------------------------------
 
@@ -181,23 +182,23 @@ CREATE TABLE `persyaratan` (
 
 INSERT INTO `persyaratan` (`id`, `nama_persyaratan`, `entry_data`, `upload_data`, `status`, `created_at`, `updated_at`) VALUES
 (5, 'KTP', '1', '1', 'Wajib', '2022-11-24 00:40:32', '2022-11-24 00:40:32'),
-(6, 'Kartu Keluarga', NULL, NULL, 'Wajib', '2022-11-24 00:42:52', '2022-11-24 00:42:52'),
-(7, 'Akta Jual Beli', NULL, NULL, 'Wajib', '2022-11-24 00:43:43', '2022-11-24 00:43:43'),
-(8, 'Sertipikat Hak Atas Tanah', NULL, NULL, 'Wajib', '2022-11-25 00:30:59', '2022-11-25 00:30:59'),
-(11, 'Akta Pemasukan Modal ke Perusahaan', 'WAJIB', NULL, 'wajib', '2022-11-25 01:26:04', '2022-11-25 01:26:04'),
-(12, 'Fotocopy Pajak Bumi dan Bangunan', 'WAJIB', NULL, 'wajib', '2022-11-25 01:26:15', '2022-11-25 01:26:15'),
-(13, 'Fotocopy Bea Perolehan Hak Tanah dan Bangunan', 'WAJIB', NULL, 'wajib', '2022-11-25 01:26:32', '2022-11-25 01:26:32'),
-(14, 'Fotocopy Surat Setoran Pajak/PPH', NULL, NULL, 'wajib', '2022-11-25 01:26:43', '2022-11-25 01:26:43'),
-(15, 'Fotocopy KTP / KK', 'WAJIB', NULL, 'wajib', '2022-11-25 01:26:53', '2022-11-25 01:26:53'),
-(16, 'Surat Permohonan Keringanan Biaya', 'WAJIB', NULL, 'wajib', '2022-11-25 01:27:06', '2022-11-25 01:27:06'),
-(17, 'Surat Permohonan', 'WAJIB', NULL, 'wajib', '2022-11-25 01:27:17', '2022-11-25 01:27:17'),
-(18, 'Fotocopy KTP / Identitas Pemilik Hak', 'WAJIB', NULL, 'wajib', '2022-11-25 01:27:28', '2022-11-25 01:27:28'),
-(19, 'Surat Pengantar PPAT', 'WAJIB', NULL, 'wajib', '2022-11-25 01:27:44', '2022-11-25 01:27:44'),
-(20, 'Surat Kuasa Permohonan', 'WAJIB', NULL, 'wajib', '2022-11-25 01:28:02', '2022-11-25 01:28:02'),
-(21, 'NPWP', 'WAJIB', NULL, 'wajib', '2022-11-25 01:28:15', '2022-11-25 01:28:15'),
-(22, 'Surat Pernyataan Kepanjangan Nama', 'WAJIB', NULL, 'wajib', '2022-11-25 01:28:27', '2022-11-25 01:28:27'),
-(23, 'Surat Pernyataan dari KAKANWIL', 'WAJIB', NULL, 'wajib', '2022-11-25 01:28:38', '2022-11-25 01:28:38'),
-(24, 'Surat Pernyataan Pertanggungjawaban Mutlak Pelunasan BPHTB', 'WAJIB', NULL, 'wajib', '2022-11-25 01:28:49', '2022-11-25 01:28:49');
+(6, 'Kartu Keluarga', '1', NULL, 'Wajib', '2022-11-24 00:42:52', '2022-11-24 00:42:52'),
+(7, 'Akta Jual Beli', '1', NULL, 'Wajib', '2022-11-24 00:43:43', '2022-11-24 00:43:43'),
+(8, 'Sertipikat Hak Atas Tanah', '1', NULL, 'Wajib', '2022-11-25 00:30:59', '2022-11-25 00:30:59'),
+(11, 'Akta Pemasukan Modal ke Perusahaan', '1', NULL, 'wajib', '2022-11-25 01:26:04', '2022-11-25 01:26:04'),
+(12, 'Fotocopy Pajak Bumi dan Bangunan', '1', NULL, 'wajib', '2022-11-25 01:26:15', '2022-11-25 01:26:15'),
+(13, 'Fotocopy Bea Perolehan Hak Tanah dan Bangunan', '1', NULL, 'wajib', '2022-11-25 01:26:32', '2022-11-25 01:26:32'),
+(14, 'Fotocopy Surat Setoran Pajak/PPH', '1', NULL, 'wajib', '2022-11-25 01:26:43', '2022-11-25 01:26:43'),
+(15, 'Fotocopy KTP / KK', '1', NULL, 'wajib', '2022-11-25 01:26:53', '2022-11-25 01:26:53'),
+(16, 'Surat Permohonan Keringanan Biaya', '1', NULL, 'wajib', '2022-11-25 01:27:06', '2022-11-25 01:27:06'),
+(17, 'Surat Permohonan', '1', NULL, 'wajib', '2022-11-25 01:27:17', '2022-11-25 01:27:17'),
+(18, 'Fotocopy KTP / Identitas Pemilik Hak', '1', NULL, 'wajib', '2022-11-25 01:27:28', '2022-11-25 01:27:28'),
+(19, 'Surat Pengantar PPAT', '1', NULL, 'wajib', '2022-11-25 01:27:44', '2022-11-25 01:27:44'),
+(20, 'Surat Kuasa Permohonan', '1', NULL, 'wajib', '2022-11-25 01:28:02', '2022-11-25 01:28:02'),
+(21, 'NPWP', '1', NULL, 'wajib', '2022-11-25 01:28:15', '2022-11-25 01:28:15'),
+(22, 'Surat Pernyataan Kepanjangan Nama', '1', NULL, 'wajib', '2022-11-25 01:28:27', '2022-11-25 01:28:27'),
+(23, 'Surat Pernyataan dari KAKANWIL', '1', NULL, 'wajib', '2022-11-25 01:28:38', '2022-11-25 01:28:38'),
+(24, 'Surat Pernyataan Pertanggungjawaban Mutlak Pelunasan BPHTB', '1', NULL, 'wajib', '2022-11-25 01:28:49', '2022-11-25 01:28:49');
 
 -- --------------------------------------------------------
 
@@ -210,6 +211,9 @@ CREATE TABLE `rincian_layanan` (
   `id_layanan` int(11) NOT NULL,
   `id_persyaratan` int(11) NOT NULL,
   `nama_layanan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `testing` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entry_data` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `upload_data` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -218,23 +222,23 @@ CREATE TABLE `rincian_layanan` (
 -- Dumping data untuk tabel `rincian_layanan`
 --
 
-INSERT INTO `rincian_layanan` (`id`, `id_layanan`, `id_persyaratan`, `nama_layanan`, `created_at`, `updated_at`) VALUES
-(5, 11, 5, 'Peralihan Pihak - Hibah', '2022-11-24 00:44:56', '2022-11-24 00:45:20'),
-(6, 12, 8, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 01:30:59', '2022-11-25 01:30:59'),
-(7, 12, 11, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 01:31:15', '2022-11-25 01:31:15'),
-(8, 12, 12, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 01:31:46', '2022-11-25 01:31:46'),
-(9, 12, 13, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 01:32:16', '2022-11-25 01:32:16'),
-(10, 12, 14, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:24:41', '2022-11-25 02:24:41'),
-(11, 12, 15, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:25:14', '2022-11-25 02:25:14'),
-(12, 12, 16, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:25:50', '2022-11-25 02:25:50'),
-(13, 12, 17, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:26:06', '2022-11-25 02:26:06'),
-(14, 12, 18, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:26:20', '2022-11-25 02:26:20'),
-(15, 12, 19, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:26:32', '2022-11-25 02:26:32'),
-(16, 12, 20, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:27:08', '2022-11-25 02:27:08'),
-(17, 12, 21, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:27:23', '2022-11-25 02:27:23'),
-(18, 12, 22, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:27:33', '2022-11-25 02:27:33'),
-(19, 12, 24, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:27:46', '2022-11-25 02:27:46'),
-(20, 12, 23, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', '2022-11-25 02:28:03', '2022-11-25 02:28:03');
+INSERT INTO `rincian_layanan` (`id`, `id_layanan`, `id_persyaratan`, `nama_layanan`, `testing`, `entry_data`, `upload_data`, `created_at`, `updated_at`) VALUES
+(5, 11, 5, 'layanan', 'p', NULL, '1', '2022-11-24 00:44:56', '2022-11-24 00:45:20'),
+(6, 12, 8, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 01:30:59', '2022-11-25 01:30:59'),
+(7, 12, 11, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 01:31:15', '2022-11-25 01:31:15'),
+(8, 12, 12, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 01:31:46', '2022-11-25 01:31:46'),
+(9, 12, 13, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 01:32:16', '2022-11-25 01:32:16'),
+(10, 12, 14, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:24:41', '2022-11-25 02:24:41'),
+(11, 12, 15, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:25:14', '2022-11-25 02:25:14'),
+(12, 12, 16, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:25:50', '2022-11-25 02:25:50'),
+(13, 12, 17, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:26:06', '2022-11-25 02:26:06'),
+(14, 12, 18, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:26:20', '2022-11-25 02:26:20'),
+(15, 12, 19, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:26:32', '2022-11-25 02:26:32'),
+(16, 12, 20, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:27:08', '2022-11-25 02:27:08'),
+(17, 12, 21, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:27:23', '2022-11-25 02:27:23'),
+(18, 12, 22, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:27:33', '2022-11-25 02:27:33'),
+(19, 12, 24, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:27:46', '2022-11-25 02:27:46'),
+(20, 12, 23, 'PERALIHAN HAK - PEMASUKAN KE DALAM PERUSAHAAN ( BPNRI.ii.1 )', NULL, '1', NULL, '2022-11-25 02:28:03', '2022-11-25 02:28:03');
 
 -- --------------------------------------------------------
 
